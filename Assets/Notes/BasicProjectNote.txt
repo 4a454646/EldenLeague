@@ -1,0 +1,34 @@
+Character
+
+- Stats
++ Agility
++ Strength
++ Health
+
+-Items
++ Armor
++ Weapon
++ Boots
++ Accessory
++ Potions (Consumables)
++ Currency (Consumables)
+
+
+Lobby
+
+- Shop Keeper
+- Black Smith
+
+
+Boss Rush
+
+
+Movements
+
+- Right Click = Move
+- Left Click = Hold --> Scales the damage
+- Space = Dodge
+- QWER = Class Abilities
+
+
+Load And Save System (for Characters)
