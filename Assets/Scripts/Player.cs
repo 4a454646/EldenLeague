@@ -21,15 +21,15 @@ public class Player : MonoBehaviour {
     [SerializeField] private float s = 1f;
     [SerializeField] private float q = 2f;
     [SerializeField] private Sprite[] rollSprites;
-    [SerializeField] public int[] spriteIndices;
-    [SerializeField] public float[] slideSpeeds;
+    public int[] spriteIndices;
+    public float[] slideSpeeds;
 
     private void Start() {
         sr = GetComponent<SpriteRenderer>();
         spriteIndices = new int[] 
-            { 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8 };
+            {0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,7,7,8};
         slideSpeeds = new float[] 
-            { s, s, s, s, s, s, s, s, s, q, q, q, q, q, q, q, q, q, q, q, q, q, q, q, s, s, s, s, s, s, s };
+            {s,s,s,s,s,s,s,s,s,q,q,q,q,q,q,q,q,q,q,q,q,q,q,s,s,s,s,s,s,s,s,s,s};
     }
 
     private void Update() {

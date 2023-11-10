@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 55471109}
   - component: {fileID: 55471108}
   - component: {fileID: 55471110}
-  - component: {fileID: 55471111}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -182,8 +181,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1753141897, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: e6a0d9762df97529393ed8cda17cc6df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -226,8 +225,8 @@ MonoBehaviour:
   canRoll: 1
   rollIFrames: 0
   rollCooldown: 0.2
-  s: 0.04
-  q: 0.17
+  s: 0.05
+  q: 0.1
   rollSprites:
   - {fileID: -25544099, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
   - {fileID: -1117718888, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
@@ -240,26 +239,6 @@ MonoBehaviour:
   - {fileID: -1909923168, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
   spriteIndices: 
   slideSpeeds: []
---- !u!95 &55471111
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55471107}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4fc66c6b3fc749a4799199dcecc8ab75, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
