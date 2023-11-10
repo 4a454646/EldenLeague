@@ -181,7 +181,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e6a0d9762df97529393ed8cda17cc6df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -225,8 +225,8 @@ MonoBehaviour:
   canRoll: 1
   rollIFrames: 0
   rollCooldown: 0.2
-  s: 0.04
-  q: 0.17
+  s: 0.05
+  q: 0.1
   rollSprites:
   - {fileID: -25544099, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
   - {fileID: -1117718888, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
