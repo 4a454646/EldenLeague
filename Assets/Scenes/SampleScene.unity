@@ -225,8 +225,20 @@ MonoBehaviour:
   canRoll: 1
   rollIFrames: 0
   rollCooldown: 0.3
-  slowSlide: 0.07
-  quickSlide: 0.25
+  s: 0.04
+  q: 0.17
+  rollSprites:
+  - {fileID: -25544099, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  - {fileID: -1117718888, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  - {fileID: 742543609, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  - {fileID: 889509402, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  - {fileID: -610327664, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  - {fileID: 2074870009, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  - {fileID: 1627262464, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  - {fileID: -1633971635, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  - {fileID: -1909923168, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  spriteIndices: 
+  slideSpeeds: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

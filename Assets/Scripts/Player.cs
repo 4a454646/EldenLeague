@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Security;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
@@ -9,11 +10,24 @@ public class Player : MonoBehaviour {
     private Vector3 targetPosition;
     private bool startMoving = false;
     private WaitForSeconds frameTime = new WaitForSeconds(1f / 60f);
+    private SpriteRenderer sr;
+    [Header("Roll Settings")]
     [SerializeField] public bool canRoll = true;
     [SerializeField] public bool rollIFrames = false;
     [SerializeField] public float rollCooldown = 1f;
-    [SerializeField] private float slowSlide = 1f;
-    [SerializeField] private float quickSlide = 2f;
+    [SerializeField] private float s = 1f;
+    [SerializeField] private float q = 2f;
+    [SerializeField] private Sprite[] rollSprites;
+    [SerializeField] public int[] spriteIndices;
+    [SerializeField] public float[] slideSpeeds;
+
+    private void Start() {
+        sr = GetComponent<SpriteRenderer>();
+        spriteIndices = new int[] 
+            { 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8 };
+        slideSpeeds = new float[] 
+            { s, s, s, s, s, s, s, s, s, q, q, q, q, q, q, q, q, q, q, q, q, q, q, q, s, s, s, s, s, s, s };
+    }
 
     private void Update() {
         if (Input.GetMouseButtonDown(1)) {
@@ -55,51 +69,18 @@ public class Player : MonoBehaviour {
     private IEnumerator Roll() {
         canRoll = false;
         rollIFrames = true;
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Get the direction to the mouse position at the time of cast
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 rollDirection = (mousePosition - transform.position);
+        Vector3 rollDirection = mousePosition - transform.position;
         rollDirection.z = 0;
         rollDirection = rollDirection.normalized;
+        sr.flipX = rollDirection.x < 0;
 
-        // 3 frames of on the ground (prep jump), sliding slowly
-        spriteRenderer.color = Color.red;
-        for (int i = 0; i < 6; i++) {
-            transform.position += rollDirection * slowSlide;
+        for (int i = 0; i < spriteIndices.Length; i++) {
+            sr.sprite = rollSprites[spriteIndices[i]];
+            transform.position += rollDirection * slideSpeeds[i];
             yield return frameTime;
         }
-
-        // 3 frames of on the ground (mid jump), sliding quickly
-        spriteRenderer.color = Color.green;
-        for (int i = 0; i < 6; i++) {
-            transform.position += rollDirection * quickSlide;
-            yield return frameTime;
-        }
-
-        // 4 frames of in the air (flying), sliding quickly
-        spriteRenderer.color = Color.blue;
-        for (int i = 0; i < 8; i++) {
-            transform.position += rollDirection * quickSlide;
-            yield return frameTime;
-        }
-
-        // 4 frames of on the ground (start roll), sliding slowly
-        spriteRenderer.color = Color.yellow;
-        for (int i = 0; i < 8; i++) {
-            transform.position += rollDirection * slowSlide;
-            yield return frameTime;
-        }
-
-        // 4 frames of on the ground (rolling), sliding slowly
-        spriteRenderer.color = Color.magenta;
-        for (int i = 0; i < 4; i++) {
-            transform.position += rollDirection * slowSlide;
-            yield return frameTime;
-        }
-
-        // 2 frames of recovery (not moving)
-        spriteRenderer.color = Color.white;
 
         rollIFrames = false;
         yield return new WaitForSeconds(rollCooldown);
