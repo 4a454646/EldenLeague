@@ -34,8 +34,8 @@ public class Player : MonoBehaviour {
             startMoving = true;
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPosition.z = 0;
-            StartCoroutine(ShrinkClickEffect(1, 0.15f, 0.1f));
-            StartCoroutine(ShrinkClickEffect(0.8f, 0.1f, 0f));
+            StartCoroutine(ShrinkClickEffect(0.5f, 0.15f, 0.1f));
+            StartCoroutine(ShrinkClickEffect(0.4f, 0.1f, 0f));
         }
         if (Input.GetKeyDown(KeyCode.Space) && canRoll) {
             StartCoroutine(Roll());
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour {
             );
             inst.transform.position = new Vector3(
                 inst.transform.position.x,
-                inst.transform.position.y - 1/180f,
+                inst.transform.position.y - 1/300f,
                 inst.transform.position.z
             );
             yield return new WaitForSeconds(lifeTime / 60f);

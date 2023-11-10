@@ -224,7 +224,7 @@ MonoBehaviour:
   clickEffectPrefab: {fileID: 5797111860656442425, guid: cfe2ae7a4f6f051b9b127879aa36824c, type: 3}
   canRoll: 1
   rollIFrames: 0
-  rollCooldown: 0.3
+  rollCooldown: 0.2
   s: 0.04
   q: 0.17
   rollSprites:
