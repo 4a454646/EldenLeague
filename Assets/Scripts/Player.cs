@@ -42,6 +42,21 @@ public class Player : MonoBehaviour {
             StartCoroutine(ShrinkClickEffect(0.4f, 0.1f, 0f));
         }
 
+        if (Input.GetMouseButtonDown(0)) {
+            startMoving = false;
+            animator.SetTrigger("doPreHold");
+        }
+
+        if (Input.GetMouseButton(0)) {
+            startMoving = false;
+            animator.SetBool("isHolding", true);    
+        }
+
+        if (Input.GetMouseButtonUp(0)) {
+            animator.SetBool("isHolding", false);
+            animator.SetBool("isWalking", false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && canRoll) {
             StartCoroutine(Roll());
         }
