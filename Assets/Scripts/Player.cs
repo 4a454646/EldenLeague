@@ -11,6 +11,9 @@ public class Player : MonoBehaviour {
     private bool startMoving = false;
     private WaitForSeconds frameTime = new WaitForSeconds(1f / 60f);
     private SpriteRenderer sr;
+
+    [SerializeField] public Animator animator;
+
     [Header("Roll Settings")]
     [SerializeField] public bool canRoll = true;
     [SerializeField] public bool rollIFrames = false;
@@ -37,12 +40,19 @@ public class Player : MonoBehaviour {
             StartCoroutine(ShrinkClickEffect(0.5f, 0.15f, 0.1f));
             StartCoroutine(ShrinkClickEffect(0.4f, 0.1f, 0f));
         }
+
         if (Input.GetKeyDown(KeyCode.Space) && canRoll) {
             StartCoroutine(Roll());
         }
 
         if (!rollIFrames && startMoving) {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, walkSpeed * Time.deltaTime);
+            animator.SetBool("isWalking", true);
+        }
+
+        if(transform.position == targetPosition) {
+            animator.SetBool("isWalking", false);
+            startMoving = false;
         }
     }
 
