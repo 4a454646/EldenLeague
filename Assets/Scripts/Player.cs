@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
             startMoving = true;
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPosition.z = 0;
+            DetermineDirection(targetPosition);
             StartCoroutine(ShrinkClickEffect(0.5f, 0.15f, 0.1f));
             StartCoroutine(ShrinkClickEffect(0.4f, 0.1f, 0f));
         }
@@ -79,6 +80,7 @@ public class Player : MonoBehaviour {
     private IEnumerator Roll() {
         canRoll = false;
         rollIFrames = true;
+        animator.enabled = false;
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rollDirection = mousePosition - transform.position;
@@ -94,6 +96,14 @@ public class Player : MonoBehaviour {
 
         rollIFrames = false;
         yield return new WaitForSeconds(rollCooldown);
+        animator.enabled = true;
         canRoll = true;
+    }
+
+    private void DetermineDirection(Vector3 mousePosition) {
+        Vector3 dir = mousePosition - transform.position;
+        dir.z = 0;
+        dir = dir.normalized;
+        sr.flipX = dir.x < 0;
     }
 }
