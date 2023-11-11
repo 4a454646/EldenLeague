@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Net.Security;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
+using Pathfinding;
 
-public class Player : MonoBehaviour {
-    public float walkSpeed = 4f;
+public class Player : MonoBehaviour, IWalkAnimation {
     public GameObject clickEffectPrefab; 
     private Vector3 targetPosition;
-    private bool startMoving = false;
     private WaitForSeconds frameTime = new WaitForSeconds(1f / 60f);
     private SpriteRenderer sr;
+    private Rigidbody2D rb;
+    private CustomPathFinder cpf;
 
     [SerializeField] public Animator animator;
 
@@ -26,6 +27,9 @@ public class Player : MonoBehaviour {
 
     private void Start() {
         sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        cpf = GetComponent<CustomPathFinder>();
+        cpf.toControl = gameObject;
         spriteIndices = new int[] 
             {0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,7,7,8};
         slideSpeeds = new float[] 
@@ -33,28 +37,26 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(1)) {
-            startMoving = true;
-            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            targetPosition.z = 0;
-            DetermineDirection(targetPosition);
-            StartCoroutine(ShrinkClickEffect(0.5f, 0.15f, 0.1f));
-            StartCoroutine(ShrinkClickEffect(0.4f, 0.1f, 0f));
+
+        if (!cpf.reachedEndOfPath) {
+            SetFacingDirection(cpf.steeringTarget);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && canRoll) {
             StartCoroutine(Roll());
         }
-
-        if (!rollIFrames && startMoving) {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, walkSpeed * Time.deltaTime);
+        else if (Input.GetMouseButtonDown(1)) {
+            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targetPosition.z = 0;
+            cpf.destination = targetPosition;
             animator.SetBool("isWalking", true);
+            StartCoroutine(ShrinkClickEffect(0.5f, 0.15f, 0.1f));
+            StartCoroutine(ShrinkClickEffect(0.4f, 0.1f, 0f));
         }
+    }
 
-        if(transform.position == targetPosition) {
-            animator.SetBool("isWalking", false);
-            startMoving = false;
-        }
+    public void OnTargetReached() {
+        animator.SetBool("isWalking", false);
     }
 
     private IEnumerator ShrinkClickEffect(float initSize, float lifeTime, float initWait) {
@@ -81,29 +83,30 @@ public class Player : MonoBehaviour {
         canRoll = false;
         rollIFrames = true;
         animator.enabled = false;
+        cpf.enabled = false;
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 rollDirection = mousePosition - transform.position;
-        rollDirection.z = 0;
-        rollDirection = rollDirection.normalized;
-        sr.flipX = rollDirection.x < 0;
+        SetFacingDirection(mousePosition);
+        Vector3 rollDirection = SetFacingDirection(mousePosition);
 
         for (int i = 0; i < spriteIndices.Length; i++) {
             sr.sprite = rollSprites[spriteIndices[i]];
-            transform.position += rollDirection * slideSpeeds[i];
+            rb.MovePosition(transform.position + rollDirection * slideSpeeds[i]);
             yield return frameTime;
         }
 
         rollIFrames = false;
+        cpf.enabled = true;
         yield return new WaitForSeconds(rollCooldown);
         animator.enabled = true;
         canRoll = true;
     }
 
-    private void DetermineDirection(Vector3 mousePosition) {
-        Vector3 dir = mousePosition - transform.position;
+    private Vector3 SetFacingDirection(Vector3 target) {
+        Vector3 dir = target - transform.position;
         dir.z = 0;
         dir = dir.normalized;
         sr.flipX = dir.x < 0;
+        return dir;
     }
 }
