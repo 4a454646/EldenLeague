@@ -221,7 +221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e94626b4b0627b26fb92ccbbf319e266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 4.3
   clickEffectPrefab: {fileID: 5797111860656442425, guid: cfe2ae7a4f6f051b9b127879aa36824c, type: 3}
   animator: {fileID: 55471111}
   canRoll: 1
@@ -251,7 +250,7 @@ Animator:
   m_GameObject: {fileID: 55471107}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4fc66c6b3fc749a4799199dcecc8ab75, type: 2}
+  m_Controller: {fileID: 9100000, guid: f6c8d804961f25448b8d161515f5d56f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

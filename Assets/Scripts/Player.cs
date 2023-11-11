@@ -43,18 +43,18 @@ public class Player : MonoBehaviour, IWalkAnimation {
         }
 
         if (Input.GetMouseButtonDown(0)) {
-            startMoving = false;
+            // startMoving = false;
             animator.SetTrigger("doPreHold");
         }
 
         if (Input.GetMouseButton(0)) {
-            startMoving = false;
+            // startMoving = false;
             animator.SetBool("isHolding", true);    
         }
 
         if (Input.GetMouseButtonUp(0)) {
             animator.SetBool("isHolding", false);
-            animator.SetBool("isWalking", false);
+            animator.SetBool("isMoving", false);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && canRoll) {
@@ -64,14 +64,14 @@ public class Player : MonoBehaviour, IWalkAnimation {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPosition.z = 0;
             cpf.destination = targetPosition;
-            animator.SetBool("isWalking", true);
+            animator.SetBool("isMoving", true);
             StartCoroutine(ShrinkClickEffect(0.5f, 0.15f, 0.1f));
             StartCoroutine(ShrinkClickEffect(0.4f, 0.1f, 0f));
         }
     }
 
     public void OnTargetReached() {
-        animator.SetBool("isWalking", false);
+        animator.SetBool("isMoving", false);
     }
 
     private IEnumerator ShrinkClickEffect(float initSize, float lifeTime, float initWait) {

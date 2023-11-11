@@ -15,7 +15,7 @@ C:/Users/kimd7/Documents/GitHub/EldenLeague
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61352
+61621
 Successfully changed project path to: C:/Users/kimd7/Documents/GitHub/EldenLeague
 C:/Users/kimd7/Documents/GitHub/EldenLeague
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/kimd7/Documents/GitHub/EldenLeague
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 66.06 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 71.65 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.5f1 (40eb3a945986)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.5f1/Editor/Data/Resources/UnitySubsystems
@@ -63,37 +63,37 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56752
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56172
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002848 seconds.
+Registered in 0.002636 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 71.25 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 71.73 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.508 seconds
+- Completed reload, in  0.516 seconds
 Domain Reload Profiling:
-	ReloadAssembly (509ms)
-		BeginReloadAssembly (58ms)
+	ReloadAssembly (517ms)
+		BeginReloadAssembly (54ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (366ms)
-			LoadAssemblies (56ms)
+		EndReloadAssembly (376ms)
+			LoadAssemblies (52ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (79ms)
+			SetupTypeCache (83ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (24ms)
-			SetupLoadedEditorAssemblies (223ms)
+			RebuildScriptCaches (21ms)
+			SetupLoadedEditorAssemblies (227ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (71ms)
-				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (109ms)
+				RefreshPlugins (72ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (113ms)
 				ProcessInitializeOnLoadMethodAttributes (35ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -101,51 +101,51 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005477 seconds.
+Registered in 0.006681 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\kimd7\Documents\GitHub\EldenLeague\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\kimd7\Documents\GitHub\EldenLeague\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 62.41 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 69.98 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.854 seconds
+- Completed reload, in  0.871 seconds
 Domain Reload Profiling:
-	ReloadAssembly (855ms)
-		BeginReloadAssembly (96ms)
+	ReloadAssembly (872ms)
+		BeginReloadAssembly (80ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
+			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (674ms)
-			LoadAssemblies (68ms)
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (706ms)
+			LoadAssemblies (61ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (172ms)
+			SetupTypeCache (187ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (39ms)
-			SetupLoadedEditorAssemblies (359ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (365ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (62ms)
-				BeforeProcessingInitializeOnLoad (68ms)
-				ProcessInitializeOnLoadAttributes (190ms)
-				ProcessInitializeOnLoadMethodAttributes (31ms)
-				AfterProcessingInitializeOnLoad (4ms)
+				RefreshPlugins (70ms)
+				BeforeProcessingInitializeOnLoad (70ms)
+				ProcessInitializeOnLoadAttributes (182ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
+				AfterProcessingInitializeOnLoad (6ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (4ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 1.82 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.78 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4204 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 39 unused Assets / (55.2 KB). Loaded Objects now: 4659.
 Memory consumption went from 156.6 MB to 156.6 MB.
-Total: 2.749400 ms (FindLiveObjects: 0.221800 ms CreateObjectMapping: 0.102900 ms MarkObjects: 2.363500 ms  DeleteObjects: 0.060200 ms)
+Total: 3.227600 ms (FindLiveObjects: 0.437000 ms CreateObjectMapping: 0.142800 ms MarkObjects: 2.575600 ms  DeleteObjects: 0.070800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -160,7 +160,65 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 68862.251909 seconds.
-  path: Assets/Sprites/playerSpriteSheet.png
-  artifactKey: Guid(fbcd35274e61b364ca99e10a26a10e21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/playerSpriteSheet.png using Guid(fbcd35274e61b364ca99e10a26a10e21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b012067af10eb089836fd1eab2fd64c') in 0.177252 seconds 
+  Time since last request: 69399.332025 seconds.
+  path: Assets/Sprites/playerPreHold.png
+  artifactKey: Guid(da54dced5910a0c42ad2807eaf553781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/playerPreHold.png using Guid(da54dced5910a0c42ad2807eaf553781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d94198f6c50c910ca7cd40874686053') in 0.127969 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.321901 seconds.
+  path: Assets/Sprites/Aseprite
+  artifactKey: Guid(8f59ae3d9c746fe47a7855fbed72ae4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite using Guid(8f59ae3d9c746fe47a7855fbed72ae4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2a5fefdcb296314535d91d4b9be46cd') in 0.001979 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.760805 seconds.
+  path: Assets/Sprites/Player
+  artifactKey: Guid(6bc1c1560a8c7fe428e48081c9beabb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Player using Guid(6bc1c1560a8c7fe428e48081c9beabb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bea69c4cc5155a4164739f7cb6386c3') in 0.001466 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 307.017787 seconds.
+  path: Assets/Sprites/Aseprite/playerAttackDown.png
+  artifactKey: Guid(59dc6801802f6334ebc919d339b76d91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/playerAttackDown.png using Guid(59dc6801802f6334ebc919d339b76d91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49138c2dd459ff7709c0a02fb2b957d2') in 0.015224 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Sprites/Aseprite/playerRoll.png
+  artifactKey: Guid(7507ea32114b9094ebd887136712b4e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Aseprite/playerRoll.png using Guid(7507ea32114b9094ebd887136712b4e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '530d5789c3c1a3ec72a129ef358901ca') in 0.018019 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.857331 seconds.
+  path: Assets/Sprites/Player/playerAttackSide.png
+  artifactKey: Guid(a799a0128e4dd0042a6c66b189c6d63f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Player/playerAttackSide.png using Guid(a799a0128e4dd0042a6c66b189c6d63f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd8289a1b4100d72957aca1ec4f7f56a') in 0.023649 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Sprites/Player/playerIdle.png
+  artifactKey: Guid(06997451d63fc1647afde7393537277f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Player/playerIdle.png using Guid(06997451d63fc1647afde7393537277f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae8c97ff948dac8f4f9400ee5e0a28b4') in 0.044529 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 40.106244 seconds.
+  path: Assets/Sprites/Player/playerAttackDown.png
+  artifactKey: Guid(59dc6801802f6334ebc919d339b76d91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Player/playerAttackDown.png using Guid(59dc6801802f6334ebc919d339b76d91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b590d86afb7e7b776273b892993fbe69') in 0.016269 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.015442 seconds.
+  path: Assets/Sprites/Player/playerDeath.png
+  artifactKey: Guid(21c30f62d69fa8d4a92b902121e92ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Player/playerDeath.png using Guid(21c30f62d69fa8d4a92b902121e92ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4efc46ffec124226e4eee04dfcd93192') in 0.019667 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Sprites/Player/playerAttackUp.png
+  artifactKey: Guid(535862add82178147b6627a6f5eed176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Player/playerAttackUp.png using Guid(535862add82178147b6627a6f5eed176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e4e7e81b40fb8cabbf09d667c428838') in 0.024782 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
