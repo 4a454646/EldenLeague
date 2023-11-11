@@ -362,10 +362,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1051312575}
-  - component: {fileID: 1051312574}
   - component: {fileID: 1051312573}
   - component: {fileID: 1051312581}
-  - component: {fileID: 1051312572}
   - component: {fileID: 1051312576}
   - component: {fileID: 1051312577}
   - component: {fileID: 1051312579}
@@ -377,26 +375,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1051312572
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051312571}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f6c8d804961f25448b8d161515f5d56f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1051312573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,9 +388,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickEffectPrefab: {fileID: 5797111860656442425, guid: cfe2ae7a4f6f051b9b127879aa36824c, type: 3}
-  animator: {fileID: 1051312572}
   canRoll: 1
-  rollIFrames: 0
+  isRolling: 0
   rollCooldown: 0.15
   s: 0.07
   q: 0.17
@@ -428,58 +405,6 @@ MonoBehaviour:
   - {fileID: -1909923168, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
   spriteIndices: 
   slideSpeeds: []
---- !u!212 &1051312574
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051312571}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -1753141897, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!4 &1051312575
 Transform:
   m_ObjectHideFlags: 0
@@ -491,7 +416,8 @@ Transform:
   m_LocalPosition: {x: -0.02, y: -2.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1745514786}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -508,8 +434,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: -0.29}
-  m_Size: {x: 0.38, y: 0.27}
+  m_Offset: {x: 0.01, y: 0.03}
+  m_Size: {x: 0.47, y: 0.29}
   m_Direction: 1
 --- !u!50 &1051312577
 Rigidbody2D:
@@ -588,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 0.43
+  radius: 0.29
   height: 2
   canMove: 1
   maxSpeed: 4.1
@@ -612,7 +538,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0
   pickNextWaypointDist: 0.3
-  endReachedDistance: 0.1
+  endReachedDistance: 0.25
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -649,7 +575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACAn+u3NYJfXQIAABYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzk3G0OKE3lqHkB4ITEgnF19ka401yJJHDx5h+O9dyTZ26fRk+dtvd799SGfCpakht0ovNGdLxYB8HxF/Jl9GvfEFjnSr5IZ/Qsf54MyWnkQD541arhAfezejKrCa5z/kVnhyhKCTvFC6mrMtJMpYg3BBhQE0aWW9t0ToPCJH/NzNvMsJT5MHf/rE0ywaXfCYg7Sge2pH7GgNy8lc0KoG5iX35Mnkftryxw1RYjktJ7r/6uMrIbhp1RB7qkO1Ca2Nw1qQwDjF6oKEJloJfFta/zt0XxWFAdsK0/T0xDW2qYlLfqqmdxU1u0bdngrnMz0GVU3I5T/Wu3EwF1pVL13WceQz2JLnuzd6yqmxg9YO4ade+Di06EDFjmYCPkqQr2qhlZMMjVY77+oMTJ7632thSQn5rscbqTegq/8/IF/DJdR+TASvstD5bw2wESr0O4wfNM7mFwoOy2HaEIh6Fb8NvNPtcItawzPXxqKprVJ6eZly2lPJPPTMV+NsorSEALeia5BU2NMaw9jbAd7YBmlvLM/U35c2eWvrrsGNS4B7fhTdmNbqcB2WKdVhCaZcOSu4hF60N7xinxIlZbNfw550bhunC5oP3LaOs79Xi2TRYzyNIZ/FcZzRx/gue4ijgo2zeMKmOdCIhN3jEuukYt0IbduDU5N9cIl71j0jo4Wmddh1pulhwT8rNWg5l4Xa5BpArpoIV+GgMQneSzZnHBu0AWu5DPMm55QIle+ApddAaah0frSapn2UlNR8r6xHUpKEdyMlHr7u8lrDnsPBJ++CXcjlD1BLAwQUAAAICAAAgJ/rl1mi1W0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UpKBhZmpWWqypZmZWVKihZlukrmZQVqKYZKZUYppcmqigVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAgJ/rtzWCX10CAAAWBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAgJ/rl1mi1W0AAAB4AAAACQAkAAAAAAAAAAAAAACqAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGIDAAAAAA==
+    dataString: UEsDBBQAAAgIAACAn+s4tTo/YQIAABgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1zmzAQ/SsenWsPdmOS9NZix+khsSduJxcuAi1GYyEx+og/Mv7vXQkw1J2eEO+93X27WvgkXJoacqv0SnP2ohiQbyPiz+TLqCef4Uh3Sm75GTrNO2e29CIaNG/UcoX41IcZVYHVPP8ud8KLIwSd5IXS1ZLtIFHGGoQLKgwgpZX10RKhzxE54mP86ENOeJrd+9MZT4/R6ILHHKQF3Us7YSdrVE7mglY1MG+5F8++Tu5a/TSazIJUYkOtCiFfQQnBTeuH2FMd+k1obRx2gwLGKfYXTMwmcwRK4LvS+tdh+LooDNjWmqanBdc4qCYv+aGa6VXU7Bt/H1Q4X+khuGpSvvzDjqeBLrSqnruq08hXsCXP92/0lFNjB8Mdwove+DQM6UDFnmYC3kuQr2qllZMMSaudD3UGZov+9dpYUkK+7/HG6g3o6v9fke/hEno/JoJXWZj8XQNshQrzDgsAGu/mJxoO62HaFIh6F78N/KK74R61xBPXxiLVdim9vUw57aVkGWbmu3E2UVpCgFvTNUgq7GmDaeztBd5wg7I3zBP1X0xbvOW6D+EmJMC9PopuqI06XC/LlOrwAqZcOyu4hN60J15xTomSstmv4Uy6sK3TBc0HYTvH2d+rRbLoIZ7HkD/GcZzRh3ic3cdRwaZZPGPzHGhEwu5xiX1SsWmMtuPBW5N9col71v1IRitN67DrTNPDip8rNRg5l4Xa5hpArpsMV+OgsQh+l2zJOA5oC9ZyGe6bfKZEqHwPLL0mSkOny6PVNO2zpKTmH8p6JCVJ+HOkxMPXXd5o+OBw8MW7ZBdy+QNQSwMEFAAACAgAAICf65dZotVtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKSgYWZqVlqsqWZmVlSooWZbpK5mUFaimGSmVGKaXJqooFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAICf6zi1Oj9hAgAAGAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAICf65dZotVtAAAAeAAAAAkAJAAAAAAAAAAAAAAArgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABmAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -705,6 +631,111 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1745514785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1745514786}
+  - component: {fileID: 1745514787}
+  - component: {fileID: 1745514788}
+  m_Layer: 0
+  m_Name: Player_Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1745514786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745514785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1051312575}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1745514787
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745514785}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -1753141897, guid: 68291046f87768f48a19f32d16d3d8b3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.64, y: 0.64}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &1745514788
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745514785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4fc66c6b3fc749a4799199dcecc8ab75, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2042128395
 GameObject:
   m_ObjectHideFlags: 0

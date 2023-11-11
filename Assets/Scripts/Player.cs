@@ -9,15 +9,15 @@ public class Player : MonoBehaviour, IWalkAnimation {
     public GameObject clickEffectPrefab; 
     private Vector3 targetPosition;
     private WaitForSeconds frameTime = new WaitForSeconds(1f / 60f);
+    
     private SpriteRenderer sr;
     private Rigidbody2D rb;
     private CustomPathFinder cpf;
-
-    [SerializeField] public Animator animator;
+    private Animator anim;
 
     [Header("Roll Settings")]
     [SerializeField] public bool canRoll = true;
-    [SerializeField] public bool rollIFrames = false;
+    [SerializeField] public bool isRolling = false;
     [SerializeField] public float rollCooldown = 1f;
     [SerializeField] private float s = 1f;
     [SerializeField] private float q = 2f;
@@ -26,7 +26,8 @@ public class Player : MonoBehaviour, IWalkAnimation {
     public float[] slideSpeeds;
 
     private void Start() {
-        sr = GetComponent<SpriteRenderer>();
+        sr = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        anim = transform.GetChild(0).gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         cpf = GetComponent<CustomPathFinder>();
         cpf.toControl = gameObject;
@@ -38,24 +39,24 @@ public class Player : MonoBehaviour, IWalkAnimation {
 
     private void Update() {
 
-        if (!cpf.reachedEndOfPath) {
+        if (!cpf.reachedEndOfPath && !isRolling) {
             SetFacingDirection(cpf.steeringTarget);
         }
 
-        if (Input.GetMouseButtonDown(0)) {
-            // startMoving = false;
-            animator.SetTrigger("doPreHold");
-        }
+        // if (Input.GetMouseButtonDown(0)) {
+        //     startMoving = false;
+        //     animator.SetTrigger("doPreHold");
+        // }
 
-        if (Input.GetMouseButton(0)) {
-            // startMoving = false;
-            animator.SetBool("isHolding", true);    
-        }
+        // if (Input.GetMouseButton(0)) {
+        //     startMoving = false;
+        //     animator.SetBool("isHolding", true);    
+        // }
 
-        if (Input.GetMouseButtonUp(0)) {
-            animator.SetBool("isHolding", false);
-            animator.SetBool("isMoving", false);
-        }
+        // if (Input.GetMouseButtonUp(0)) {
+        //     animator.SetBool("isHolding", false);
+        //     animator.SetBool("isWalking", false);
+        // }
 
         if (Input.GetKeyDown(KeyCode.Space) && canRoll) {
             StartCoroutine(Roll());
@@ -64,14 +65,14 @@ public class Player : MonoBehaviour, IWalkAnimation {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPosition.z = 0;
             cpf.destination = targetPosition;
-            animator.SetBool("isMoving", true);
+            anim.SetBool("isWalking", true);
             StartCoroutine(ShrinkClickEffect(0.5f, 0.15f, 0.1f));
             StartCoroutine(ShrinkClickEffect(0.4f, 0.1f, 0f));
         }
     }
 
     public void OnTargetReached() {
-        animator.SetBool("isMoving", false);
+        anim.SetBool("isWalking", false);
     }
 
     private IEnumerator ShrinkClickEffect(float initSize, float lifeTime, float initWait) {
@@ -95,10 +96,10 @@ public class Player : MonoBehaviour, IWalkAnimation {
     }
 
     private IEnumerator Roll() {
-        canRoll = false;
-        rollIFrames = true;
-        animator.enabled = false;
+        isRolling = true;
         cpf.enabled = false;
+        anim.enabled = false;
+        canRoll = false;
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         SetFacingDirection(mousePosition);
@@ -106,14 +107,14 @@ public class Player : MonoBehaviour, IWalkAnimation {
 
         for (int i = 0; i < spriteIndices.Length; i++) {
             sr.sprite = rollSprites[spriteIndices[i]];
-            rb.MovePosition(transform.position + rollDirection * slideSpeeds[i]);
             yield return frameTime;
+            rb.MovePosition(transform.position + rollDirection * slideSpeeds[i]);
         }
 
-        rollIFrames = false;
+        isRolling = false;
         cpf.enabled = true;
         yield return new WaitForSeconds(rollCooldown);
-        animator.enabled = true;
+        anim.enabled = true;
         canRoll = true;
     }
 
