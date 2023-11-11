@@ -42,6 +42,21 @@ public class Player : MonoBehaviour, IWalkAnimation {
             SetFacingDirection(cpf.steeringTarget);
         }
 
+        if (Input.GetMouseButtonDown(0)) {
+            startMoving = false;
+            animator.SetTrigger("doPreHold");
+        }
+
+        if (Input.GetMouseButton(0)) {
+            startMoving = false;
+            animator.SetBool("isHolding", true);    
+        }
+
+        if (Input.GetMouseButtonUp(0)) {
+            animator.SetBool("isHolding", false);
+            animator.SetBool("isWalking", false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && canRoll) {
             StartCoroutine(Roll());
         }
